@@ -2,7 +2,7 @@
 
 /** Original code by @MallarMiun on GitHub, Malin Larsson, teacher at Mittuniversitetet.
  * Link to original repository: https://github.com/MallarMiun/Grund-for-webbtjanst
- * Code edited with changes Ida Gundhammar 2021-10-07, student at Mittuniversitetet, HT2020.
+ * Code edited with changes Ida Gundhammar 2021-10-28, student at Mittuniversitetet, HT2020.
  **/
 
 

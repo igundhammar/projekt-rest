@@ -1,7 +1,7 @@
 <?php
 
 
-// Code by Ida Gundhammar 2021-10-07, student at Mittuniversitetet, HT2020.
+// Code by Ida Gundhammar 2021-10-28, student at Mittuniversitetet, HT2020.
 
 // Create class Database with properties of the database host, name, username and password.
 class Database {
@@ -10,6 +10,7 @@ class Database {
 	private $db_name = '[dbname]';
 	private $username = '[username]';
 	private $password = '[password]';
+
 
 
 

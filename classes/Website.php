@@ -1,7 +1,12 @@
 <?php
 
+// Code by Ida Gundhammar 2021-10-28, student at Mittuniversitetet, HT2020.
+
+// Include Database class
 include_once 'config/Database.php';
 
+
+// Create class Website with properties from the websites in database such as id, title, description and url as well as properties with the database connection.
 class Website {
 
 	public $id;
@@ -19,6 +24,7 @@ class Website {
 	}
 
 
+	// Method to check if the token sent in GET parameter is found in the database. If it is, return true. Else, return false.
 	public function checkToken( $token ) : bool {
 		$stmt = $this->conn->prepare("SELECT * FROM users WHERE token = :token");
 		$stmt->bindParam(':token', $token);
@@ -34,6 +40,7 @@ class Website {
 	}
 
 
+	// Method to get all websites from the database. Returns the result as an associative array.
 	public function getAllWebsites() : array {
 		$stmt = $this->conn->prepare("SELECT * FROM websites");
 		if ( ! $this->result = $stmt->execute()) {
@@ -45,6 +52,7 @@ class Website {
 	}
 
 
+	// Method to get a specific website with id sent. Return the result as an associative array.
 	public function getSpecificWebsite( $id ): array {
 		$stmt = $this->conn->prepare("SELECT * FROM websites WHERE id = :id");
 		$stmt->bindParam(':id', $id);
@@ -57,6 +65,7 @@ class Website {
 	}
 
 
+	// Method to create a new website. Send title, description and url to the database and return true if the query went through.
 	public function createWebsite(): bool {
 		$stmt = $this->conn->prepare( "INSERT INTO websites (title, description, url)
 		VALUES (:title, :description, :url)" );
@@ -71,6 +80,7 @@ class Website {
 	}
 
 
+	// Method to update an existing website with id sent. Send title, description and url and set values on the website with the id sent. Return true if the query went through.
 	public function updateWebsite( $id ): bool {
 		$stmt = $this->conn->prepare("UPDATE websites SET title = :title, description = :description, url = :url WHERE id = :id");
 		$stmt->bindParam( ':title', $this->title );
@@ -85,6 +95,7 @@ class Website {
 	}
 
 
+	// Method to delete website with id sent. Send the id to the database with DELETE-query. Return true if the query went through.
 	public function deleteWebsite( $id ): bool {
 		$stmt = $this->conn->prepare("DELETE FROM websites WHERE id = :id");
 		$stmt->bindParam(':id', $id);
