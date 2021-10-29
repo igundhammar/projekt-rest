@@ -67,6 +67,9 @@ class Website {
 
 	// Method to create a new website. Send title, description and url to the database and return true if the query went through.
 	public function createWebsite(): bool {
+		$this->title = htmlspecialchars($this->title);
+		$this->description = htmlspecialchars($this->description);
+		$this->url = htmlspecialchars($this->url);
 		$stmt = $this->conn->prepare( "INSERT INTO websites (title, description, url)
 		VALUES (:title, :description, :url)" );
 		$stmt->bindParam( ':title', $this->title );
@@ -82,6 +85,9 @@ class Website {
 
 	// Method to update an existing website with id sent. Send title, description and url and set values on the website with the id sent. Return true if the query went through.
 	public function updateWebsite( $id ): bool {
+		$this->title = htmlspecialchars($this->title);
+		$this->description = htmlspecialchars($this->description);
+		$this->url = htmlspecialchars($this->url);
 		$stmt = $this->conn->prepare("UPDATE websites SET title = :title, description = :description, url = :url WHERE id = :id");
 		$stmt->bindParam( ':title', $this->title );
 		$stmt->bindParam( ':description', $this->description );

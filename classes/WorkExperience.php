@@ -67,6 +67,8 @@ class WorkExperience {
 
 	// Method to create a new job. Send place, title, startdate, enddate to the database and return true if the query went through.
 	public function createWorkExperience(): bool {
+		$this->place = htmlspecialchars($this->place);
+		$this->title = htmlspecialchars($this->title);
 		$stmt = $this->conn->prepare("INSERT INTO work_experience (place, title, startdate, enddate)
 		VALUES (:place, :title, :startdate, :enddate)");
 		$stmt->bindParam( ':place', $this->place );
@@ -83,6 +85,8 @@ class WorkExperience {
 
 	// Method to update an existing job with id sent. Send place, title, startdate, enddate and set values on the job with the id sent. Return true if the query went through.
 	public function updateWorkExperience( $id ): bool {
+		$this->place = htmlspecialchars($this->place);
+		$this->title = htmlspecialchars($this->title);
 		$stmt = $this->conn->prepare("UPDATE work_experience SET place = :place, title = :title, startdate = :startdate, enddate = :enddate WHERE id = :id");
 		$stmt->bindParam( ':place', $this->place );
 		$stmt->bindParam( ':title', $this->title );

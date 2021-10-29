@@ -70,6 +70,9 @@ class Course {
 
 	// Method to create a new course. Send code, name, university, startdate and enddate to the database and return true if the query went through.
 	public function createCourse(): bool {
+		$this->code = htmlspecialchars($this->code);
+		$this->name = htmlspecialchars($this->name);
+		$this->university = htmlspecialchars($this->university);
 		$stmt = $this->conn->prepare( "INSERT INTO courses (code, name, university, startdate, enddate) VALUES (:code, :name, :university, :startdate, :enddate)" );
 		$stmt->bindParam( ':code', $this->code );
 		$stmt->bindParam( ':name', $this->name );
@@ -86,6 +89,9 @@ class Course {
 
 	// Method to update an existing course with id sent. Send code, name, university, startdate and enddate and set values on the course with the id sent. Return true if the query went through.
 	public function updateCourse( $id ): bool {
+		$this->code = htmlspecialchars($this->code);
+		$this->name = htmlspecialchars($this->name);
+		$this->university = htmlspecialchars($this->university);
 		$stmt = $this->conn->prepare( "UPDATE courses SET code = :code, name = :name, university = :university, startdate = :startdate, enddate = :enddate WHERE id = :id" );
 		$stmt->bindParam( ':code', $this->code );
 		$stmt->bindParam( ':name', $this->name );
