@@ -5,8 +5,8 @@ The website created for this project: https://studenter.miun.se/~idgu2001/dt173g
 
 
 ## Assignment 💻
-👽 Create a Rest API that is public to READ. \
-👽 CREATE/UPDATE/DELETE should be protected with a token given by a log in website, https://github.com/igundhammar/projekt-login, also created for this project. \
+👽 Create a Rest API that is public to GET. \
+👽 POST/PUT/DELETE should be protected with a token given by a log in website, https://github.com/igundhammar/projekt-login, also created for this project. \
 👽 The API should use JSON as format. \
 👽 A client should consume the Rest API - https://github.com/igundhammar/project-client.
 
@@ -25,17 +25,17 @@ Note that your database tables must match the parameters in `classes/Course.php`
 
 You can also use this Rest API with an API testing tool such as ARC or Postman but note that you will need a valid token for some of the methods.
 
-This web service is free to READ, but needs a valid token to CREATE, UPDATE or DELETE. 
+This web service is free to GET, but needs a valid token to POST, PUT or DELETE. 
 There are several endpoints of this Rest API but they all use 3 database tables - courses, workexperiences and websites.
 
-#### Endpoints to use with READ.
+#### Endpoints to use with GET.
 https://studenter.miun.se/~idgu2001/writeable/projekt-restapi/courses.php
 
 https://studenter.miun.se/~idgu2001/writeable/projekt-restapi/workexperiences.php
 
 https://studenter.miun.se/~idgu2001/writeable/projekt-restapi/websites.php
 
-#### Endpoints to use with CREATE.
+#### Endpoints to use with POST.
 
 `https://studenter.miun.se/~idgu2001/writeable/projekt-restapi/courses.php?token=<token>`
 
@@ -45,7 +45,7 @@ https://studenter.miun.se/~idgu2001/writeable/projekt-restapi/websites.php
 
 where `<token>` is the valid token from authorized log in.
 
-#### Endpoints to use with UPDATE/DELETE.
+#### Endpoints to use with PUT/DELETE.
 
 `https://studenter.miun.se/~idgu2001/writeable/projekt-restapi/courses.php?id=<number>&token=<token>`
 
