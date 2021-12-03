@@ -42,7 +42,7 @@ class WorkExperience {
 
 	// Method to get all jobs from the database. Returns the result as an associative array.
 	public function getAllWorkExperiences() : array {
-		$stmt = $this->conn->prepare("SELECT * FROM work_experience ORDER BY enddate ASC");
+		$stmt = $this->conn->prepare("SELECT * FROM work_experience ORDER BY enddate DESC");
 		if ( ! $this->result = $stmt->execute()) {
 			die('Fel vid SQL-fråga [' . $this->conn->error . ']');
 		} else {

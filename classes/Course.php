@@ -44,7 +44,7 @@ class Course {
 
 	// Method to get all courses from the database. Returns the result as an associative array.
 	public function getAllCourses(): array {
-		$stmt = $this->conn->prepare( "SELECT * FROM courses ORDER BY enddate ASC " );
+		$stmt = $this->conn->prepare( "SELECT * FROM courses ORDER BY enddate DESC " );
 		if ( ! $this->result = $stmt->execute() ) {
 			die( 'Fel vid SQL-fråga [' . $this->conn->error . ']' );
 		} else {

@@ -42,7 +42,7 @@ class Website {
 
 	// Method to get all websites from the database. Returns the result as an associative array.
 	public function getAllWebsites() : array {
-		$stmt = $this->conn->prepare("SELECT * FROM websites");
+		$stmt = $this->conn->prepare("SELECT * FROM websites ORDER BY id DESC;");
 		if ( ! $this->result = $stmt->execute()) {
 			die( 'Fel vid SQL-fråga [' . $this->conn->error . ']' );
 		} else {
